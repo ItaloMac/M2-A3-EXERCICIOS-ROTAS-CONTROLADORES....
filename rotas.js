@@ -1,14 +1,11 @@
 const express = require('express')
 const operacoes = require('./src/controladores/operacoes')
+const rodada = require('./src/controladores/rodada')
 
 const rotas = express();
 
-rotas.get('/somar/:num1/:num2', operacoes.somar )
-
-rotas.get('/subtrair/:num1/:num2', operacoes.subtrair )
-
-rotas.get('/dividir/:num1/:num2', operacoes.dividir )
-
-rotas.get('/multiplicar/:num1/:num2', operacoes.multiplicar )
+rotas.get('/', rodada.proximoJogador )
+rotas.delete('/remover/:indiceJogador', rodada.removerJogador )
+rotas.post('/adicionar/:novoJogador', rodada.adicionarJogador)
 
 module.exports= rotas;
